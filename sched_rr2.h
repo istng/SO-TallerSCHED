@@ -1,5 +1,5 @@
-#ifndef __SCHED_RR__
-#define __SCHED_RR__
+#ifndef __SCHED_RR2__
+#define __SCHED_RR2__
 
 #include <vector>
 #include <deque>
@@ -20,7 +20,7 @@ class SchedRR2 : public SchedBase {
 	private:
 		//first es estado, second es nucleo
 		vector<pair<int, int > > procesos;
-		vector<deque<int > > colas;
+		vector<deque<int >* > colas;
 		vector<int > quantums_originales;
 		vector<int > quantums_actuales;
 };

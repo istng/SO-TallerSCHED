@@ -22,13 +22,13 @@ SchedRR2::SchedRR2(vector<int> argn) {
 		quantums_originales.push_back(quantum);
 
 		deque<int >* cola = new deque<int >();
-		colas.push_back(*cola);
+		colas.push_back(cola);
 	}
 }
 
 SchedRR2::~SchedRR2() {
 	for (size_t i = 0; i < colas.size(); i++) {
-		delete &colas[i];
+		delete colas[i];
 	}
 }
 
@@ -56,21 +56,21 @@ int SchedRR2::dameNucleo(){
 void SchedRR2::load(int pid) {
 	int cpu = dameNucleo();
 	procesos.push_back(make_pair(READY_nuestro,cpu));
-	colas[cpu].push_back(pid);
+	colas[cpu]->push_back(pid);
 }
 
 void SchedRR2::unblock(int pid) {
 	procesos[pid].first = READY_nuestro;
-	colas[procesos[pid].second].push_back(pid);
+	colas[procesos[pid].second]->push_back(pid);
 }
 
 
 int SchedRR2::intercambiarProcesos(int cpu){
 	int pid;
-	if(!colas[cpu].empty()){
-		pid = colas[cpu].front();
+	if(!colas[cpu]->empty()){
+		pid = colas[cpu]->front();
 		procesos[pid].first = RUNNING_nuestro;
-		colas[cpu].pop_front();
+		colas[cpu]->pop_front();
 	} else {
 		pid = IDLE_TASK;
 	}
@@ -89,7 +89,7 @@ int SchedRR2::tick(int cpu, const enum Motivo m) {
 			}
 			if (quantums_actuales[cpu] == 0){
 				procesos[pid].first = READY_nuestro;
-				colas[cpu].push_back(pid);
+				colas[cpu]->push_back(pid);
 				pid = intercambiarProcesos(cpu);
 			}
 		//Si es el idle:
@@ -107,4 +107,3 @@ int SchedRR2::tick(int cpu, const enum Motivo m) {
 
 	return pid;
 }
-
