@@ -1,0 +1,47 @@
+FCFS:
+Un core:
+waiting time:
+t0 = 2 
+t1 = 15-5 = 10
+t2 = 32 - 6 = 26
+t3 = 48 - 8 = 40
+
+TOTAL = (2 + 10 + 26 + 40)/4 = 19,5
+
+latencia:
+t0 = 2 
+t1 = 15-5 = 10
+t2 = 32 - 6 = 26
+t3 = 48 - 8 = 40
+
+TOTAL = (2 + 10 + 26 + 40)/4 = 19,5
+(son iguales dado el lote y ser fcfs)
+
+throughput:
+
+TOTAL = 4/57 = 0.0701 
+
+_________________________
+
+Tres cores:
+waiting time:
+t0 = 2
+t1 = 2
+t2 = 2
+t3 = 15 - 8 = 7
+
+TOTAL = ( 2 + 2 + 2 + 7 ) / 4 = 3.25
+
+latencia:
+t0 = 2
+t1 = 2
+t2 = 2
+t3 = 15 - 8 = 7
+
+throughput:
+
+TOTAL = 4 / 24 = 0.16
+
+
+
+
