@@ -1,0 +1,6 @@
+
+Lote 1: En este caso se puede apreciar que esta polìtica se puede considerar buena porque al bloquearse el proceso, el scheduler lo saca del procesador y aprovecha el tiempo para meter otro proceso.
+
+Lote 2: Podemos observar como el scheduler cuanto se le termina el quantum al proceso hace el context switch al siguiente proceso.
+
+Lote 3: Aca podemos ver un peor caso del scheduler en el que si bien tenemos 2 procesadores, al costar 5 el cambio de procesador, se comporta como si se tuviera solo 1 procesador.
